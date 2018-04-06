@@ -1,0 +1,73 @@
+文件夹	selecting_annotations
+	-- selecting_annotations.m
+	selecting_annotations.m  同步xml的子文件夹与jpg的子文件夹，直接将多余的xml子文件夹在其文件夹内删除。
+
+jpeg2jpg.m  将文件夹下子文件夹内的.jpeg格式的图片直接在原文件夹内转化为.jpg格式的图片。
+		data目录例子：
+			S:\ImageNet\JPEGImages1\
+				-- n02666196
+					-- 1.JPEG --> 1,jpg
+					-- ...
+				-- n02667093
+					-- 1.JPEG --> 1,jpg
+					-- ...
+				-- ...
+		
+文件夹map_clsloc
+	-- map_clsloc.m
+	-- importDataFiles.m
+	map_clsloc.m  利用图像文件夹中的子文件夹的名称根据类别全集文件来确定子文件夹内图片所属类别。
+	importDataFiles.m  读取类别全集文件（.txt）中的类别。
+		data目录例子：
+			S:\ImageNet\JPEGImages1\
+				-- n02666196
+				-- n02667093
+				-- ...
+	
+文件夹annotations_images
+	-- annotations_images.m
+	annotations_images.m  同步xml文件与jpg文件，并将jpg文件存放于另一个指定的文件夹中。
+
+文件夹createtxt
+	-- createtxt.m
+	-- importDataFiles.m
+	-- xml_toolbox
+	createtxt.m  利用jpg文件及其对应的xml文件根据类别来创建txt文件。其中，txt文件的最终格式为（例子）：n02666196_21.jpg abacus 11 9 484 312
+	importDataFiles.m  读取类别文件（.txt）中的类别。
+	xml_toolbox  xml相关处理工具集，适用于matlab 2012 以前的版本。
+		data目录例子：
+			jpg文件
+				S:\ImageNet\JPEGImages1\
+					-- n02666196
+						-- 1.JPEG
+						-- ...
+					-- n02667093
+						-- 1.JPEG
+						-- ...
+					-- ...	
+			xml文件
+				S:\ImageNet\Annotations\
+					-- n02666196
+						-- 1.xml
+						-- ...
+					-- n02667093
+						-- 1.xml
+						-- ...
+					-- ...	
+			类别txt文件
+				S:\ImageNet\
+					-- map_clsloc.txt
+			最终txt文件
+				S:\ImageNet\labels1\
+					-- n02666196
+						-- 1.txt
+						-- ...
+					-- n02667093
+						-- 1.txt
+						-- ...
+					-- ...
+
+文件夹txt2xml
+	-- writeanno.m
+	-- writexml.m
+	writeanno.m  利用txt文件和jpg文件生成满足pascal voc的xml文件，存储在Annotations文件夹中。
